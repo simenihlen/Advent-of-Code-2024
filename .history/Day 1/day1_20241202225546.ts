@@ -32,4 +32,3 @@ const totalDistance = leftArray.reduce((sum, leftNum, i) => {
 
 console.log('Total distance: ', totalDistance)
 //example output: 11
-//data output: 2769675

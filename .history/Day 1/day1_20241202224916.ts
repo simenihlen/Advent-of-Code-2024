@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 
-const data = './data.txt'
+const data = './example.txt'
 const content = fs.readFileSync(data, 'utf-8')
 
 const leftArray: number[] = []
@@ -32,4 +32,3 @@ const totalDistance = leftArray.reduce((sum, leftNum, i) => {
 
 console.log('Total distance: ', totalDistance)
 //example output: 11
-//data output: 2769675
