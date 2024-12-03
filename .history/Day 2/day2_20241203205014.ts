@@ -5,18 +5,18 @@ const content = fs.readFileSync(data, 'utf-8')
 
 let safeReports = 0
 
-const test: number[][] = [[19, 22, 24, 27, 28, 30, 31, 32]]
+const test = [19, 22, 24, 27, 28, 30, 31, 32]
 
-const reports: number[][] = content.trim()
-    .split('\n')
-    .map(line => line.trim().split(/\s+/).map(Number)) //same as day1: converts each line to an array of numbers
-/* [ outputs this: (((:
-  [ 7, 6, 4, 2, 1 ],
-  [ 1, 2, 7, 8, 9 ],
-  [ 9, 7, 6, 2, 1 ],
-  [ 1, 3, 2, 4, 5 ],
-  [ 8, 6, 4, 4, 1 ],
-  [ 1, 3, 6, 7, 9 ]
+const reports: number[][] = content.split('\n') //split at each newline
+    .filter(line => line.trim() !== '') //removes empty lines
+    .map(line => line.split(/\s+/).map(Number)) //same as day1: converts each line to an array of numbers
+/* [ outputs this: :)))
+  [ 7, 6, 4, 2, 1, 0 ],
+  [ 1, 2, 7, 8, 9, 0 ],
+  [ 9, 7, 6, 2, 1, 0 ],
+  [ 1, 3, 2, 4, 5, 0 ],
+  [ 8, 6, 4, 4, 1, 0 ],
+  [ 1, 3, 6, 7, 9, 0 ]
 ]*/
 
 //Make function to be able to check each element in the reports array
@@ -26,7 +26,7 @@ function isReportSafe(report: number[]): boolean {
         const diff = report[i] - report[i - 1]
         difference.push(diff)
         //Checks if any two adjacent levels differ by at least one and at most three.
-        if (Math.abs(diff) < 1 || Math.abs(diff) > 3){
+        if (Math.abs(diff) <= 1 && Math.abs(diff) >= 3){
             return false
         }
     }
@@ -38,10 +38,8 @@ function isReportSafe(report: number[]): boolean {
 }
 
 safeReports = reports.filter(isReportSafe).length
-const testReport = test.filter(isReportSafe).length
 
-console.log('Parsing', reports)
-console.log('Test: ',testReport)
+console.log(reports)
 console.log('Total of safe reports: ', safeReports)
-//example output: 3
+//example output: 2
 //data output: 298 WRONG

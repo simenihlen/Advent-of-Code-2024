@@ -26,7 +26,7 @@ function isReportSafe(report: number[]): boolean {
         const diff = report[i] - report[i - 1]
         difference.push(diff)
         //Checks if any two adjacent levels differ by at least one and at most three.
-        if (Math.abs(diff) < 1 || Math.abs(diff) > 3){
+        if (Math.abs(diff) > 1 && Math.abs(diff) < 3){
             return false
         }
     }
@@ -43,5 +43,5 @@ const testReport = test.filter(isReportSafe).length
 console.log('Parsing', reports)
 console.log('Test: ',testReport)
 console.log('Total of safe reports: ', safeReports)
-//example output: 3
+//example output: 2
 //data output: 298 WRONG
