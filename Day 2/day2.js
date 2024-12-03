@@ -36,5 +36,5 @@ var testReport = test.filter(isReportSafe).length;
 console.log('Parsing', reports);
 console.log('Test: ', testReport);
 console.log('Total of safe reports: ', safeReports);
-//example output: 2
+//example output: 3
 //data output: 298 WRONG
