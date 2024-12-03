@@ -39,4 +39,4 @@ safeReports = reports.filter(isReportSafe).length
 
 console.log('Total of safe reports: ', safeReports)
 //example output: 3
-//data output: 483
+//data output: 298 WRONG

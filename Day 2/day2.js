@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
-var data = './example.txt';
+var data = './data.txt';
 var content = fs.readFileSync(data, 'utf-8');
 var safeReports = 0;
-var test = [[19, 22, 24, 27, 28, 30, 31, 32]];
 var reports = content.trim()
     .split('\n')
     .map(function (line) { return line.trim().split(/\s+/).map(Number); }); //same as day1: converts each line to an array of numbers
@@ -32,9 +31,6 @@ function isReportSafe(report) {
     return allIncreasing || allDecreasing;
 }
 safeReports = reports.filter(isReportSafe).length;
-var testReport = test.filter(isReportSafe).length;
-console.log('Parsing', reports);
-console.log('Test: ', testReport);
 console.log('Total of safe reports: ', safeReports);
 //example output: 3
 //data output: 298 WRONG

@@ -36,7 +36,8 @@ function isReportSafe(report: number[]): boolean {
 }
 
 safeReports = reports.filter(isReportSafe).length
+const testReport = test.filter(isReportSafe).length
 
 console.log('Total of safe reports: ', safeReports)
 //example output: 3
-//data output: 483
+//data output: 298 WRONG
