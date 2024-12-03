@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 
-const data = './data.txt'
+const data = './example.txt'
 const content = fs.readFileSync(data, 'utf-8')
 
 let safeReports = 0
@@ -20,11 +20,11 @@ const reports: number[][] = content.split('\n') //split at each newline
 //Make function to be able to check each element in the reports array
 function isReportSafe(report: number[]): boolean {
     const difference = []
-    for (let i = 1; i < report.length; i++){
+    for (let i = 0; i < report.length; i++){
         const diff = report[i] - report[i - 1]
         difference.push(diff)
         //Checks if any two adjacent levels differ by at least one and at most three.
-        if (Math.abs(diff) < 1 && Math.abs(diff) > 3){
+        if (Math.abs(diff) < 1 || Math.abs(diff) > 3){
             return false
         }
     }
@@ -38,5 +38,3 @@ function isReportSafe(report: number[]): boolean {
 safeReports = reports.filter(isReportSafe).length
 
 console.log('Total of safe reports: ', safeReports)
-//example output: 2
-//data output: 298 WRONG

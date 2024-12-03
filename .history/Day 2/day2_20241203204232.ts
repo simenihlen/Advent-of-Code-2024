@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 
-const data = './data.txt'
+const data = './example.txt'
 const content = fs.readFileSync(data, 'utf-8')
 
 let safeReports = 0
@@ -38,5 +38,3 @@ function isReportSafe(report: number[]): boolean {
 safeReports = reports.filter(isReportSafe).length
 
 console.log('Total of safe reports: ', safeReports)
-//example output: 2
-//data output: 298 WRONG
