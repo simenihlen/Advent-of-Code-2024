@@ -1,11 +1,12 @@
+"use strict";
 /*
-As the search for the Chief continues, a small Elf who lives on the 
-station tugs on your shirt; she'd like to know if you could help her with her word search (your puzzle input). 
+As the search for the Chief continues, a small Elf who lives on the
+station tugs on your shirt; she'd like to know if you could help her with her word search (your puzzle input).
 She only has to find one word: XMAS.
 
 This word search allows words to be horizontal, vertical, diagonal, written backwards,
- or even overlapping other words. It's a little unusual, though, as you don't merely need to 
- find one instance of XMAS - you need to find all of them. Here are a few ways XMAS might appear, 
+ or even overlapping other words. It's a little unusual, though, as you don't merely need to
+ find one instance of XMAS - you need to find all of them. Here are a few ways XMAS might appear,
  where irrelevant characters have been replaced with .:
 
 ..X...
@@ -27,7 +28,7 @@ SAXAMASAAA
 MAMMMXMMMM
 MXMXAXMASX
 
-In this word search, XMAS occurs a total of 18 times; here's the same word search again, 
+In this word search, XMAS occurs a total of 18 times; here's the same word search again,
 but where letters not involved in any XMAS have been replaced with .:
 
 ....XXMAS.
@@ -43,10 +44,8 @@ S.S.S.S.SS
 
 Take a look at the little Elf's word search. How many times does XMAS appear?
 */
-
-import * as fs from 'fs'
-
-const data = './data.txt'
-const test = './example.txt'
-
-const content = fs.readFileSync(test, 'utf-8')
+Object.defineProperty(exports, "__esModule", { value: true });
+var fs = require("fs");
+var data = './data.txt';
+var test = './example.txt';
+var content = fs.readFileSync(test, 'utf-8');
