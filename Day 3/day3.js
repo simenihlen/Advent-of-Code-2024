@@ -32,4 +32,4 @@ function validMul(mulString) {
 }
 console.log("Total sum: ", validMul(content));
 //test output: 161
-//data output:
+//data output: 159892596
