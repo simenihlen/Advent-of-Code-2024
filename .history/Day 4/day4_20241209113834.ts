@@ -107,4 +107,4 @@ function countWords(grid: string[][], word: string): number {
 
 console.log(countWords(grid,word))
 //example output: 18
-//data output: 2545
+//data output: 

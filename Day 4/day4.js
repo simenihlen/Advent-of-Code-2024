@@ -48,4 +48,54 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var data = './data.txt';
 var test = './example.txt';
-var content = fs.readFileSync(test, 'utf-8');
+var content = fs.readFileSync(data, 'utf-8');
+//2D array
+var grid = content.split('\n').map(function (line) { return line.trim().split(''); });
+var word = "XMAS";
+function countWords(grid, word) {
+    var count = 0;
+    var rows = grid.length;
+    var cols = grid[0].length;
+    /*
+    [-1,-1][-1,0][-1,1]
+    [0,-1] [....][0,1]
+    [1,-1] [1,0] [1,1]
+    */
+    var directions = [
+        [0, -1],
+        [0, 1],
+        [1, 0],
+        [-1, 0],
+        [1, 1],
+        [-1, -1],
+        [1, -1],
+        [-1, 1]
+    ];
+    //function to check if a word exists starting at (r row, c column) in a specific direction
+    function isWordAt(r, c, dr, dc) {
+        for (var i = 0; i < word.length; i++) {
+            var newRow = r + i * dr; //new row to check
+            var newCol = c + i * dc; //new column to check
+            if (newRow < 0 || newRow >= rows || //check if out of bounds x-axis
+                newCol < 0 || newCol >= cols || //check if out of bounds y-axis
+                grid[newRow][newCol] !== word[i]) { //check if the letter on grid[newRow][newCol] matches any of the letters in word[i]
+                return false;
+            }
+        }
+        return true;
+    }
+    for (var r = 0; r < rows; r++) {
+        for (var c = 0; c < cols; c++) {
+            for (var _i = 0, directions_1 = directions; _i < directions_1.length; _i++) {
+                var _a = directions_1[_i], dr = _a[0], dc = _a[1];
+                if (isWordAt(r, c, dr, dc)) {
+                    count++;
+                }
+            }
+        }
+    }
+    return count;
+}
+console.log(countWords(grid, word));
+//example output: 18
+//data output: 

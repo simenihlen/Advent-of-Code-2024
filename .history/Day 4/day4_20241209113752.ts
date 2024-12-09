@@ -76,7 +76,6 @@ function countWords(grid: string[][], word: string): number {
         [1,-1],
         [-1,1]
     ]
-
     //function to check if a word exists starting at (r row, c column) in a specific direction
     function isWordAt(r: number, c: number, dr: number, dc: number): boolean{
         for (let i = 0; i < word.length; i++){
@@ -92,7 +91,6 @@ function countWords(grid: string[][], word: string): number {
         return true
     }
 
-    //Traverse the grid
     for(let r = 0; r < rows; r++){
         for(let c = 0; c < cols; c++){
             for(const[dr,dc] of directions){
@@ -105,6 +103,7 @@ function countWords(grid: string[][], word: string): number {
     return count
 }
 
+
 console.log(countWords(grid,word))
 //example output: 18
-//data output: 2545
+//data output: 
